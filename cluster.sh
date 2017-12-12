@@ -22,7 +22,7 @@ if [[ "$num" == "$x" ]];then
     fi
     #list=(${list[*]} $IP)
     address=$IP:6379
-    addresslist=(${address[*]} $address)
+    addresslist=(${addresslist[*]} $address)
     count=$[count+1]
   done
   nohup redis-server /etc/redis.conf &
