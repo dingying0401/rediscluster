@@ -27,7 +27,7 @@ if [[ "$num" == "$x" ]];then
   done
   nohup redis-server /etc/redis.conf &
   #print the ip list
-  echo ${list[*]} >> bash.log
+  echo ${addresslist[*]} >> bash.log
   #start creating the redis cluster
   ./expect.sh ${addresslist[*]}
   tail -f /var/log/alternatives.log
