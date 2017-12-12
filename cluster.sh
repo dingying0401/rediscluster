@@ -29,7 +29,7 @@ if [[ "$num" == "$x" ]];then
   #print the ip list
   echo ${list[*]} >> bash.log
   #start creating the redis cluster
-  ./redis-trib.rb create --replicas 1 ${addresslist[*]}
+  ./expect.sh
   tail -f /var/log/alternatives.log
 else
   redis-server /etc/redis.conf
