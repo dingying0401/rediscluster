@@ -17,6 +17,7 @@ if [[ "$num" == "$x" ]];then
       IP=`ping $CLUSTERNAME-$count.$SUBDOMAIN -c 1 | grep 10.128 | grep -v 'PING' | cut -d ' ' -f 4 | cut -d ':' -f 1`
       echo $IP >> bash.log
     else
+      sleep 15
       IP=`ping $CLUSTERNAME-$count.$SUBDOMAIN -c 1 | grep 10.128 | grep -v 'PING' | cut -d ' ' -f 5 | cut -d '(' -f 2 | cut -d ')' -f 1`
       echo $IP >> bash.log
     fi
