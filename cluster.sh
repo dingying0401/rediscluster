@@ -26,11 +26,13 @@ if [[ "$num" == "$x" ]];then
     count=$[count+1]
   done
   nohup redis-server /etc/redis.conf &
+  #print the ip list
+  echo ${list[*]} >> bash.log
+  #start creating the redis cluster
+  ./redis-trib.rb create --replicas 1 ${addresslist[*]}
+  tail -f /var/log/alternatives.log
 else
   redis-server /etc/redis.conf
  #echo "failed"
 fi
-#print the ip list
-echo ${list[*]} >> bash.log
-#start creating the redis cluster
-./redis-trib.rb create --replicas 1 ${addresslist[*]}
+
