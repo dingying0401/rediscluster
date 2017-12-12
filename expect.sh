@@ -1,5 +1,5 @@
 #! /usr/bin/expect                                                                                                                                                     
-spawn ./cluster.sh                
+spawn ./redis-trib.rb create --replicas 1 ${addresslist[*]}                
 expect "Can I set the above configuration? (type 'yes' to accept):"
 send "yes\r"
 interact
