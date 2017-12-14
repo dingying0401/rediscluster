@@ -31,7 +31,7 @@ if [[ "$num" == "$x" ]];then
   echo ${addresslist[*]} >> bash.log
   #start creating the redis cluster
   #./expect.sh 
-  ./redis-trib.rb create --replicas 1 ${addresslist[*]} 
+  echo "yes" | ./redis-trib.rb create --replicas 1 ${addresslist[*]}
   tail -f /var/log/alternatives.log
 else
   redis-server /etc/redis.conf
